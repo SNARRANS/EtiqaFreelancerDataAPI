@@ -9,7 +9,7 @@ using System.Security.Claims;
 using System.Text;
 
 namespace EtiqaFreelancerDataAPI.Controllers
-{
+{    
     [Route("api/[controller]")]
     [ApiController]
     public class TokenController : ControllerBase
