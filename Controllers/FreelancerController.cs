@@ -52,13 +52,30 @@ namespace EtiqaFreelancerDataAPI.Controllers
             return Ok("Updated Successfully");
         }
 
+        //[HttpDelete]
+        ////[HttpDelete("{id}")]
+        //[Route("DeleteProfile")]
+        //public JsonResult Delete(int id)
+        //{
+        //    _freelancer.DeleteProfile(id);
+        //    return new JsonResult("Deleted Successfully");
+        //}
+
+
         [HttpDelete]
-        //[HttpDelete("{id}")]
-        [Route("DeleteProfile")]
-        public JsonResult Delete(int id)
+        [Route("{id}")]
+        public IActionResult Delete([FromRoute] int Id)
         {
-            _freelancer.DeleteProfile(id);
-            return new JsonResult("Deleted Successfully");
+            if (!_freelancer.DeleteProfile(Id))
+            {
+                return NotFound();
+            }
+
+            return Ok(new
+            {
+                message = "Deleted Successfully",
+                Id = Id
+            });
         }
 
 
