@@ -23,6 +23,13 @@ namespace EtiqaFreelancerDataAPI.Controllers
             return Ok(await _freelancer.GetProfiles());
         }
 
+        [HttpGet]
+        [Route("GetProfileById/{Id}")]
+        public async Task<IActionResult> GetProfileById(int Id)
+        {
+            return Ok(await _freelancer.GetProfileById(Id));
+        }
+
         [HttpPost]
         [Route("AddProfile")]
         public async Task<IActionResult> Post(Profile obj)
@@ -33,6 +40,23 @@ namespace EtiqaFreelancerDataAPI.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, "Something Went Wrong");
             }
             return Ok("Added Successfully");
+        }
+
+        [HttpPut]
+        [Route("UpdateProfile")]
+        public async Task<IActionResult> Put(Profile obj)
+        {
+            await _freelancer.UpdateProfile(obj);
+            return Ok("Updated Successfully");
+        }
+
+        [HttpDelete]
+        //[HttpDelete("{id}")]
+        [Route("DeleteProfile")]
+        public JsonResult Delete(int id)
+        {
+            _freelancer.DeleteProfile(id);
+            return new JsonResult("Deleted Successfully");
         }
 
 
