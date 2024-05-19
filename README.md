@@ -26,6 +26,11 @@ ASP.NET Core 8.0 Web API + Microsoft SQL Server 2019 with JWT Authentication
 * System.IdentityModel.Tokens.Jwt 7.5.2
 * Microsoft.AspNetCore.Mvc.NewtonsoftJson 8.0.5
 
+### Database
+
+* Add-Migration AddingEFExtentions002
+* Update-Database
+
 ## Authors
 
 Sharul Nizam Ab Rahim  
