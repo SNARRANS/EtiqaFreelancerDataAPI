@@ -41,9 +41,10 @@ public class TokenRepository : ITokenRepository
                 result = true;
             }
         }
-        catch (Exception ex)
+        catch (Exception)
         {
-            throw ex;
+            //throw ex;
+            result = false;
         }
         finally
         {

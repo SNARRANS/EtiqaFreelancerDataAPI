@@ -1,11 +1,13 @@
 ﻿using EtiqaFreelancerDataAPI.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Numerics;
 
 namespace EtiqaFreelancerDataAPI.Data
 {
     public interface IFreelancerRepository
     {
         Task<IEnumerable<Profile>> GetProfiles();
+        Task<PaginatedList<Profile>> GetProfilesV2(int pageIndex, int pageSize);
         Task<Profile?> GetProfileById(int Id);
         Task<Profile> InsertProfile(Profile objProfile);
         Task<Profile> UpdateProfile(Profile objProfile);
@@ -23,6 +25,20 @@ namespace EtiqaFreelancerDataAPI.Data
         public async Task<IEnumerable<Profile>> GetProfiles()
         {
             return await _dbContext.Profiles.ToListAsync();
+        }
+
+        public async Task<PaginatedList<Profile>> GetProfilesV2(int pageIndex, int pageSize)
+        {
+            var profiles = await _dbContext.Profiles
+                .OrderBy(b => b.Id)
+                .Skip((pageIndex - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
+
+            var count = await _dbContext.Profiles.CountAsync();
+            var totalPages = (int)Math.Ceiling(count / (double)pageSize);
+
+            return new PaginatedList<Profile>(profiles, pageIndex, totalPages);
         }
 
         public async Task<Profile?> GetProfileById(int Id)
