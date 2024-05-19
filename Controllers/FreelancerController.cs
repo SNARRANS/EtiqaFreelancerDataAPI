@@ -3,6 +3,8 @@ using EtiqaFreelancerDataAPI.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Distributed;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace EtiqaFreelancerDataAPI.Controllers
 {
@@ -12,17 +14,32 @@ namespace EtiqaFreelancerDataAPI.Controllers
     public class FreelancerController : ControllerBase
     {
         private readonly IFreelancerRepository _freelancer;
+        private readonly IMemoryCache _memoryCache;
+        //private readonly IDistributedCache _distributedCache;
 
-        public FreelancerController(IFreelancerRepository freelancer)
+        public FreelancerController(IFreelancerRepository freelancer, IMemoryCache memoryCache)
         {
             _freelancer = freelancer ?? throw new ArgumentNullException(nameof(freelancer));
+            _memoryCache = memoryCache;
+
+            //_distributedCache = distributedCache;
         }
 
         [HttpGet]
         [Route("GetProfiles")]
         public async Task<IActionResult> Get()
         {
-            return Ok(await _freelancer.GetProfiles());
+            var cacheData = _memoryCache.Get<IEnumerable<Profile>>("Profiles");
+            if (cacheData != null)
+            {
+                return Ok(cacheData);
+            }
+
+            var expirationTime = DateTimeOffset.Now.AddMinutes(5.0);
+            cacheData = await _freelancer.GetProfiles();
+            _memoryCache.Set("Profiles", cacheData, expirationTime);
+
+            return Ok(cacheData);
         }
 
         [HttpGet]

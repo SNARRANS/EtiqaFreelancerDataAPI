@@ -20,6 +20,8 @@ var Audience = configuration.GetValue<string>("Jwt:Audience");
 string? connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddTransient(_ => new DBConnector(connectionString));
 
+builder.Services.AddMemoryCache();
+
 builder.Services.AddScoped<IFreelancerRepository, FreelancerRepository>();
 builder.Services.AddScoped<ITokenRepository, TokenRepository>();
 
