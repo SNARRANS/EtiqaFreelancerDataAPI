@@ -14,7 +14,7 @@ namespace EtiqaFreelancerDataAPI.Persistence
 
         public void Dispose()
         {
-            connection.Close();
+             connection.Close();
         }
     }
 }
