@@ -7,7 +7,7 @@ namespace EtiqaFreelancerDataAPI.Data
     public interface IFreelancerRepository
     {
         Task<IEnumerable<Profile>> GetProfiles();
-        Task<PaginatedList<Profile>> GetProfilesV2(int pageIndex, int pageSize);
+        Task<PaginatedList<Profile>> GetProfilesV3(int pageIndex, int pageSize);
         Task<Profile?> GetProfileById(int Id);
         Task<Profile> InsertProfile(Profile objProfile);
         Task<Profile> UpdateProfile(Profile objProfile);
@@ -27,7 +27,7 @@ namespace EtiqaFreelancerDataAPI.Data
             return await _dbContext.Profiles.ToListAsync();
         }
 
-        public async Task<PaginatedList<Profile>> GetProfilesV2(int pageIndex, int pageSize)
+        public async Task<PaginatedList<Profile>> GetProfilesV3(int pageIndex, int pageSize)
         {
             var profiles = await _dbContext.Profiles
                 .OrderBy(b => b.Id)

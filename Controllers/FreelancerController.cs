@@ -28,6 +28,14 @@ namespace EtiqaFreelancerDataAPI.Controllers
         [HttpGet]
         [Route("GetProfiles")]
         public async Task<IActionResult> Get()
+        {            
+            return Ok(await _freelancer.GetProfiles());
+        }
+
+      
+        [HttpGet]
+        [Route("GetProfilesV2")]
+        public async Task<IActionResult> Get2()
         {
             var cacheData = _memoryCache.Get<IEnumerable<Profile>>("Profiles");
             if (cacheData != null)
@@ -43,10 +51,10 @@ namespace EtiqaFreelancerDataAPI.Controllers
         }
 
         [HttpGet]
-        [Route("GetProfilesV2")]
-        public async Task<ActionResult<ApiResponse>> Get2(int pageIndex = 1, int pageSize = 10)
+        [Route("GetProfilesV3")]
+        public async Task<ActionResult<ApiResponse>> Get3(int pageIndex = 1, int pageSize = 10)
         {
-            var players = await _freelancer.GetProfilesV2(pageIndex, pageSize);
+            var players = await _freelancer.GetProfilesV3(pageIndex, pageSize);
             return new ApiResponse(true, null, players);
         }
 
