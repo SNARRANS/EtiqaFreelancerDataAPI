@@ -21,6 +21,27 @@ namespace EtiqaFreelancerDataAPI.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("EtiqaFreelancerDataAPI.Models.LoginInfo", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Userpassword")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("LoginInfos");
+                });
+
             modelBuilder.Entity("EtiqaFreelancerDataAPI.Models.Profile", b =>
                 {
                     b.Property<int>("Id")

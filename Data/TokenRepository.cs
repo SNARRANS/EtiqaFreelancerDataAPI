@@ -32,7 +32,7 @@ public class TokenRepository : ITokenRepository
                 this._connector.connection.Open();
             var cmd = this._connector.connection.CreateCommand() as SqlCommand;
             //cmd.CommandText = @"SELECT Id, Name, Price, Quantity, RowVersion FROM Products WHERE Id = @Id";
-            cmd.CommandText = @"select [Id] from [dbo].[LoginInfo] where [Username] = @1 and [Userpassword] = @2 ;";
+            cmd.CommandText = @"select [Id] from [dbo].[LoginInfos] where [Username] = @1 and [Userpassword] = @2 ;";
             cmd.Parameters.AddWithValue("@1", Username);
             cmd.Parameters.AddWithValue("@2", Userpassword);
             var reader = cmd.ExecuteReader();

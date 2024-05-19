@@ -11,6 +11,8 @@ namespace EtiqaFreelancerDataAPI.Data
 
         }
 
+        public DbSet<LoginInfo> LoginInfos { get; set; }
+
         public DbSet<Profile> Profiles { get; set; }
         
     }
