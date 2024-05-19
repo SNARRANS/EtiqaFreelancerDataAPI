@@ -2,7 +2,7 @@
 
 # Project Title
 
-ASP.NET Core 8.0 Web API + Ms SQL Server 2019 with JWT Authentication
+ASP.NET Core 8.0 Web API + Microsoft SQL Server 2019 with JWT Authentication
 
 ## Description
 
