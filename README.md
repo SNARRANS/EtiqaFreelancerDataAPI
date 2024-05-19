@@ -26,7 +26,7 @@ ASP.NET Core 8.0 Web API + Ms SQL Server 2019 with JWT Authentication
 
 ## Authors
 
-Sharul Nizam Ab Rahim  
+Sharul Nizam Ab Rahim
 Full Stack .NET Developer
 https://my.linkedin.com/in/sharul-nizam-ab-rahim-b584775a
 
