@@ -9,7 +9,8 @@ ASP.NET Core 8.0 Web API + Microsoft SQL Server 2019 with JWT Authentication
 1. This project contains CRUD functions to manage freelancer data
 2. Good start for beginners learning Back-end technology using .NET Core 8.0 with Ms SQL Server 2019
 4. Data access that has been used are Entity Framework Core, LINQ and SqlClient
-5. Front-end technologies such as Angular, React, Next.js and others can be used to call this Web API
+5. Implement Caching and query technique to divide a large list of items into multiple pages
+6. Front-end technologies such as Angular, React, Next.js and others can be used to call this Web API
 
 ## Getting Started
 
