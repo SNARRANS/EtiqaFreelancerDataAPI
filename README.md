@@ -13,6 +13,18 @@ ASP.NET Core 8.0 Web API + Microsoft SQL Server 2019 with JWT Authentication
 5. Implement caching and pagination technique to divide a large list of items into multiple pages
 
 
+## .NET Back-end CRUD functions using ASP.NET Core 8.0 Web API
+
+Etiqa Freelancer Data API ( 8 Operations )<br />
+http://development.eba-afb24gg2.ap-southeast-2.elasticbeanstalk.com/swagger/index.html
+
+
+## Front-end Apps using Angular 17 Call .NET Back-end CRUD
+
+CRUD APPS ( Username: sharul / Password: 1925 )<br />
+http://angular-crud.s3-website-ap-southeast-2.amazonaws.com
+
+
 ## Getting Started
 
 ### Dependencies
@@ -31,10 +43,6 @@ ASP.NET Core 8.0 Web API + Microsoft SQL Server 2019 with JWT Authentication
 * Add-Migration AddingEFExtentions002
 * Update-Database
 
-## Front-end Apps using Angular 17
-
-CRUD APPS ( Username: sharul / Password: 1925)
-http://angular-crud.s3-website-ap-southeast-2.amazonaws.com
 
 ## Authors
 
