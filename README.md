@@ -31,6 +31,11 @@ ASP.NET Core 8.0 Web API + Microsoft SQL Server 2019 with JWT Authentication
 * Add-Migration AddingEFExtentions002
 * Update-Database
 
+## Front-end Apps using Angular 17
+
+CRUD APPS ( Username: sharul / Password: 1925)
+http://angular-crud.s3-website-ap-southeast-2.amazonaws.com
+
 ## Authors
 
 Sharul Nizam Ab Rahim  
