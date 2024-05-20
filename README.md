@@ -15,13 +15,13 @@ ASP.NET Core 8.0 Web API + Microsoft SQL Server 2019 with JWT Authentication
 
 ## .NET Back-end CRUD functions using ASP.NET Core 8.0 Web API
 
-Etiqa Freelancer Data API ( 8 Operations )<br />
+Etiqa Freelancer Data API ( 8 Operations ) - Live<br />
 http://development.eba-afb24gg2.ap-southeast-2.elasticbeanstalk.com/swagger/index.html
 
 
 ## Front-end Apps using Angular 17 Call .NET Back-end CRUD
 
-CRUD APPS ( Username: sharul / Password: 1925 )<br />
+CRUD APPS ( Username: sharul / Password: 1925 ) - Live<br />
 http://angular-crud.s3-website-ap-southeast-2.amazonaws.com
 
 
